@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shelivery - Delivery costs, Shared.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface": "#faf8ff",
+                        "secondary-container": "#6cf8bb",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-background": "#191b23",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-variant": "#e1e2ed",
+                        "inverse-surface": "#2e3039",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-dim": "#d9d9e5",
+                        "surface-container": "#ededf9",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "text-muted": "#6B7280",
+                        "outline": "#737686",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-surface": "#191b23",
+                        "primary": "#004ac6",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#faf8ff",
+                        "text-main": "#111827",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#00714d",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-tint": "#0053db",
+                        "on-secondary-fixed": "#002113",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-muted": "#F9FAFB",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "inverse-primary": "#b4c5ff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#006c49",
+                        "background": "#FFFFFF",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "tertiary-container": "#bc4800",
+                        "outline-variant": "#c3c6d7",
+                        "surface-container-highest": "#e1e2ed",
+                        "border-subtle": "#E5E7EB",
+                        "on-primary-fixed": "#00174b",
+                        "on-surface-variant": "#434655",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-low": "#f3f3fe",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e7e7f3",
+                        "accent-soft": "#EFF6FF",
+                        "on-tertiary-container": "#ffede6",
+                        "tertiary": "#943700",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "container-padding": "20px",
+                        "stack-md": "24px",
+                        "section-gap": "80px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "micro-copy": ["Inter"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "micro-copy": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-xl": ["36px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-bold": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-['Plus_Jakarta_Sans']">Shelivery</div>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1" href="#">How It Works</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors" href="#">Pricing</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors" href="#">Community</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all">
+                Join Beta
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 py-section-gap grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<!-- Content Left -->
+<div class="space-y-stack-md text-center lg:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full text-primary font-label-bold text-micro-copy">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Starting in Lausanne
+                </div>
+<h1 class="font-headline-xl text-headline-xl text-on-background lg:text-5xl lg:leading-[1.1]">
+                    Delivery costs, <span class="text-primary">Shared.</span>
+</h1>
+<p class="text-text-muted text-body-md max-w-md mx-auto lg:mx-0">
+                    No more minimum order limit, and no more delivery fee. Join forces with your neighbors to unlock premium delivery for free.
+                </p>
+<div class="pt-stack-md">
+<form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto lg:mx-0">
+<input class="flex-1 px-4 py-3 bg-surface-muted border border-border-subtle rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-body-sm" placeholder="Enter your email" type="email"/>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-label-bold hover:shadow-lg active:scale-95 transition-all border-t border-white/20">
+                            Get Early Access
+                        </button>
+</form>
+<p class="mt-4 text-micro-copy text-text-muted">Join 1,200+ people in the Lausanne waitlist.</p>
+</div>
+</div>
+<!-- Central Animation Box (Visual Representation) -->
+<div class="relative max-w-lg mx-auto w-full">
+<div class="bg-white rounded-3xl p-6 border border-border-subtle ambient-shadow">
+<!-- Link Pasting UI -->
+<div class="mb-6 space-y-3">
+<div class="flex items-center gap-3 p-3 bg-surface-muted rounded-xl border border-border-subtle">
+<span class="material-symbols-outlined text-primary" data-icon="link">link</span>
+<div class="flex-1 text-micro-copy text-text-muted truncate">ubereats.com/store/mcdonalds-lausanne...</div>
+<button class="bg-primary text-white px-4 py-1.5 rounded-lg text-micro-copy font-label-bold">Order</button>
+</div>
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-micro-copy font-label-bold">Cart Imported</span>
+</div>
+<div class="text-micro-copy text-text-muted">Processing...</div>
+</div>
+</div>
+<!-- Community Pool UI -->
+<div class="bg-accent-soft p-4 rounded-2xl mb-6">
+<div class="flex justify-between items-center mb-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high overflow-hidden">
+<img alt="User" data-alt="Portrait of a young professional smiling softly with a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPv0jWYW5hP6VyF5gLaaK0X25R7FQ5KuMBwAisfqU-HG9nsSaAE-FH4soySoq2al9bxraa26iWC9DRDLqdV-2vcLME8mRKjxb7ejTMp9W8G9J2HPIpAAFppWYq3VO8BZgJ85X6jf8dIi-AX9-rsWDaEdW92L1Znd4Qv0kZqaO9l8eqozMi-udDhks70XLBIRsy0Wdz17zIlnAKazjZsCl7vq51En3Q6pTBu3qHmrAybcL4wOpZb9ktubFJI23C6SsJahRxoMe2jIp1"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high overflow-hidden">
+<img alt="User" data-alt="Close-up headshot of a woman with a warm expression in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC__1r6pQspEshAkwjoKz_g1dj3wV4UuaW44ckHrDCkVudrUy2PYGhQZmHLZpfAUfxLZ538SQyLqjT0RetUSMbq1oO8sA8DZJ4b-nrxBo-D_EufvJiZ1aj7kCQlq7OX3pmeOI_1_NjUOakJA2iA7b1Wam3Lb-_ZQYOXsvJkJl9ogh_hD40QxY52Z8NcoBgLI6M9m7ViigRkJM9x8TPmuFyC1X_iFnAmdZ52bz6z1u1V_Q86rrUMGnMyZu5dUAI0tQffU5ULcRmrPG4X"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[10px] text-white font-bold">YOU</div>
+</div>
+<span class="text-micro-copy font-label-bold text-primary">Pool progress: 3/3</span>
+</div>
+<div class="w-full h-2 bg-white/50 rounded-full overflow-hidden">
+<div class="w-full h-full bg-primary"></div>
+</div>
+</div>
+<!-- Chat Visualization -->
+<div class="space-y-3 mb-6">
+<div class="flex gap-2">
+<div class="bg-surface-muted p-2 rounded-2xl rounded-tl-none max-w-[80%]">
+<p class="text-micro-copy">Order locked! We're saving $12 on delivery. 🚀</p>
+</div>
+</div>
+<div class="flex gap-2 justify-end">
+<div class="bg-primary text-white p-2 rounded-2xl rounded-tr-none max-w-[80%]">
+<p class="text-micro-copy">Amazing, let's go!</p>
+</div>
+</div>
+</div>
+<!-- Map Illustration Container -->
+<div class="relative w-full aspect-[16/10] bg-surface-container rounded-2xl overflow-hidden border border-border-subtle">
+<img alt="Map" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" data-alt="Minimalist abstract map of city streets with clean geometric lines and soft pastel tones" data-location="Lausanne" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoOqyt6hdAezyK63GK0I7zxKQpEIIRFMvrkLAnJQQ0QxNmukJSbu6EuHocswBRf5kOQBMjnnTxlhIQxFn7RhiYEk1_GYwkwIGWGrqDzmWCz9F0ULqwlsmFaBcbtlJaniSiB6rTeEMdrFOIEKLAsuXpqF7bAD7ZLqzGKq0aEx9ok1Mdqsgyc56CfUdFwxgdoHgZ4LWnu5FdBcqaSNsOjfxTx3fxBTFcRNyci5HoQOh6Jp6d8gL6G8vP-G99LZZUJ_U4ObrhMJsaj6Fc"/>
+<!-- Map Animation Elements (Simplified Visual) -->
+<div class="absolute inset-0 flex items-center justify-center">
+<!-- User Markers merging -->
+<div class="relative w-full h-full">
+<div class="absolute top-1/4 left-1/4 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm transition-all animate-pulse"></div>
+<div class="absolute bottom-1/3 right-1/4 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm transition-all animate-pulse"></div>
+<div class="absolute top-1/2 right-1/3 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm transition-all animate-pulse"></div>
+<!-- Central Delivery Hub -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="local_mall">local_mall</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Cards -->
+<section class="bg-surface-muted py-section-gap">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background">Better for you, better for the city.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Order Together -->
+<div class="bg-white p-8 rounded-3xl border border-border-subtle ambient-shadow flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-accent-soft rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="groups">groups</span>
+</div>
+<h3 class="font-label-bold text-lg mb-3">Order Together</h3>
+<p class="text-body-sm text-text-muted">Shelivery syncs orders from nearby neighbors, turning individual trips into community pools.</p>
+</div>
+<!-- Save up to 70% -->
+<div class="bg-white p-8 rounded-3xl border border-border-subtle ambient-shadow flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-secondary-container/20 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="savings">savings</span>
+</div>
+<h3 class="font-label-bold text-lg mb-3">Save up to 70%</h3>
+<p class="text-body-sm text-text-muted">Split delivery fees and service charges. Most users reach zero delivery cost within 5 minutes of posting.</p>
+</div>
+<!-- Eco-Friendly -->
+<div class="bg-white p-8 rounded-3xl border border-border-subtle ambient-shadow flex flex-col items-center text-center">
+<div class="w-14 h-14 bg-tertiary-fixed-dim/30 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="eco">eco</span>
+</div>
+<h3 class="font-label-bold text-lg mb-3">Eco-Friendly</h3>
+<p class="text-body-sm text-text-muted">Fewer delivery bikes on the road means less congestion and a smaller carbon footprint for every meal.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-4xl mx-auto px-6 py-section-gap text-center">
+<div class="bg-primary-container p-12 rounded-[2rem] text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h2 class="font-headline-xl text-white mb-4">Ready to stop paying for delivery?</h2>
+<p class="text-primary-fixed mb-8 max-w-md mx-auto">Be the first to know when we launch in your neighborhood. Limited slots for beta testers.</p>
+<button class="bg-white text-primary px-10 py-4 rounded-xl font-label-bold hover:bg-surface transition-all active:scale-95 shadow-xl">
+                        Reserve My Spot
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-auto bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto px-6 font-['Plus_Jakarta_Sans'] text-xs font-normal">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="text-lg font-semibold text-gray-900 dark:text-white">Shelivery</div>
+<p class="text-gray-500 dark:text-gray-400">© 2024 Shelivery. Starting in Lausanne.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 text-gray-500 dark:text-gray-400">
+<a class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer" href="#">Contact Us</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer" href="#">Instagram</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>
