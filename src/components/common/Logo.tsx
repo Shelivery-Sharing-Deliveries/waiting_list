@@ -30,8 +30,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
         height={height}
         className="object-contain"
       />
-      <span className={`font-extrabold tracking-tighter text-gray-900 ${textSizeClasses[size]}`}
-            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
+      <span className={`font-headline-xl font-extrabold tracking-tighter text-text-main ${textSizeClasses[size]}`}>
         Shelivery
       </span>
     </div>

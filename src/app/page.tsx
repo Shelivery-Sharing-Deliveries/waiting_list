@@ -24,7 +24,7 @@ export default function Home() {
           </p>
           {/* Email + button */}
           <div className="max-w-md mx-auto pt-2">
-            <EmailForm />
+            <EmailForm textColor="var(--color-text-muted)" />
           </div>
           <div className="flex justify-center items-center gap-2 pt-1">
             <span className="text-xs text-text-muted flex items-center gap-1.5">
@@ -244,7 +244,7 @@ export default function Home() {
                 {t('cta.subtitle')}
               </p>
               <div className="flex justify-center">
-                <EmailForm />
+                <EmailForm textColor="var(--color-on-primary-dim)" />
               </div>
             </div>
           </div>

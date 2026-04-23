@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const EmailForm: React.FC = () => {
+interface EmailFormProps {
+  textColor?: string;
+}
+
+const EmailForm: React.FC<EmailFormProps> = ({ textColor }) => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -208,7 +212,7 @@ const EmailForm: React.FC = () => {
         style={{
           marginTop: '16px',
           fontSize: '12px',
-          color: '#E5E7EB',
+          color: textColor || 'var(--color-text-muted)',
           fontFamily: '"Inter", sans-serif',
           textAlign: 'left',
         }}

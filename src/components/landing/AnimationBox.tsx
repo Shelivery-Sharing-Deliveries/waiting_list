@@ -122,8 +122,8 @@ export default function AnimationBox() {
         if (chatRef.current) chatRef.current.innerHTML = '';
 
         const messages = [
-          { text: 'Joining! I need milk.', side: 'left' },
-          { text: 'Me too! Saving 5 CHF.', side: 'right' },
+          { text: "Joining! I need this product from Migros", side: 'left' },
+          { text: "My cart is here ! Let's have it delivered.", side: 'right' },
           { text: "Order locked. Let's go!", side: 'left' },
         ];
 
@@ -418,12 +418,12 @@ export default function AnimationBox() {
         >
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
             <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: 'var(--color-white)', color: 'var(--color-text-main)', border: '1px solid var(--color-border-subtle)', borderRadius: '0 16px 16px 16px', boxShadow: '0 1px 2px rgba(var(--color-black-rgb),0.05)' }}>
-              Joining! I need milk.
+              Joining! I need this product from Migros.
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: 'var(--color-primary)', color: 'var(--color-on-primary)', borderRadius: '16px 0 16px 16px' }}>
-              Me too! Saving 5 CHF.
+              My cart is here ! Let's have it delivered.
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>

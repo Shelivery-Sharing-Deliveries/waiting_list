@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import React, { useState, useEffect } from 'react';
+import Logo from '@/components/common/Logo';
 
 export default function ThankYouPage() {
   const { t } = useLanguage();
@@ -40,25 +41,8 @@ export default function ThankYouPage() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: '80vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '48px 24px',
-        background: '#FFFFFF',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '480px',
-          width: '100%',
-          margin: '0 auto',
-          textAlign: 'center',
-        }}
-      >
+    <div className="min-h-[80vh] flex flex-col items-center justify-center py-12 px-6 bg-background">
+      <div className="max-w-md w-full mx-auto text-center">
         {/* Success Icon */}
         <div style={{ position: 'relative', marginBottom: '32px' }}>
           <div
@@ -115,94 +99,36 @@ export default function ThankYouPage() {
         </p>
 
         {/* Info box */}
-        <div
-          style={{
-            background: '#F9FAFB',
-            border: '1px solid #E5E7EB',
-            borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '32px',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: '14px',
-              color: '#6B7280',
-              lineHeight: '1.5',
-            }}
-          >
-            <span style={{ fontWeight: '600', color: '#2563EB' }}>{t('thankYou.waitingCount', waitingListCount)}</span>{' '}
+        <div className="bg-surface-muted border border-border-subtle rounded-xl p-4 mb-8">
+          <p className="font-body-sm text-text-muted">
+            <span className="font-label-bold text-primary">{t('thankYou.waitingCount', waitingListCount)}</span>{' '}
             {t('thankYou.waitingText')}
           </p>
         </div>
 
         {/* Share Section */}
-        <div style={{ marginBottom: '32px' }}>
-          <h3
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: '16px',
-              fontWeight: '600',
-              color: '#191b23',
-              marginBottom: '8px',
-            }}
-          >
+        <div className="mb-8">
+          <h3 className="font-label-bold text-text-main mb-2">
             {t('thankYou.shareTitle')}
           </h3>
-          <p
-            style={{
-              fontFamily: '"Inter", sans-serif',
-              fontSize: '14px',
-              color: '#6B7280',
-              marginBottom: '16px',
-            }}
-          >
+          <p className="font-body-sm text-text-muted mb-4">
             {t('thankYou.shareSubtitle')}
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+          <div className="flex gap-3 justify-center">
             <button
               onClick={handleShare}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '10px 20px',
-                border: '1px solid #2563EB',
-                borderRadius: '8px',
-                background: 'transparent',
-                color: '#2563EB',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: '14px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.15s ease',
-              }}
+              className="flex items-center gap-1.5 px-5 py-2.5 border border-primary rounded-lg bg-transparent text-primary font-label-bold cursor-pointer transition-all duration-150 ease-in-out"
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined text-lg">
                 share
               </span>
               {t('thankYou.shareButton')}
             </button>
             <button
               onClick={handleCopyLink}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '10px 20px',
-                border: '1px solid #2563EB',
-                borderRadius: '8px',
-                background: 'transparent',
-                color: '#2563EB',
-                fontFamily: '"Inter", sans-serif',
-                fontSize: '14px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.15s ease',
-              }}
+              className="flex items-center gap-1.5 px-5 py-2.5 border border-primary rounded-lg bg-transparent text-primary font-label-bold cursor-pointer transition-all duration-150 ease-in-out"
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined text-lg">
                 link
               </span>
               {t('thankYou.copyLink')}
@@ -211,47 +137,23 @@ export default function ThankYouPage() {
         </div>
 
         {/* Divider */}
-        <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: '32px' }}>
+        <div className="border-t border-border-subtle pt-8">
           {/* Back to Home */}
           <Link
             href="/"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              width: '100%',
-              padding: '14px 32px',
-              background: '#2563EB',
-              color: '#ffffff',
-              borderRadius: '10px',
-              fontFamily: '"Inter", sans-serif',
-              fontSize: '14px',
-              fontWeight: '600',
-              textDecoration: 'none',
-              letterSpacing: '0.01em',
-              boxShadow: '0 4px 6px -1px rgba(37,99,235,0.3)',
-              transition: 'all 0.15s ease',
-            }}
+            className="flex items-center justify-center gap-2 w-full py-3.5 px-8 bg-primary text-on-primary rounded-lg font-label-bold no-underline tracking-wide shadow-primary-md transition-all duration-150 ease-in-out"
           >
-            <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+            <span className="material-symbols-outlined text-lg">
               arrow_back
             </span>
             {t('thankYou.backToHome')}
           </Link>
 
-          <p
-            style={{
-              marginTop: '16px',
-              fontSize: '12px',
-              color: '#6B7280',
-              fontFamily: '"Inter", sans-serif',
-            }}
-          >
+          <p className="mt-4 font-micro-copy text-text-muted">
             {t('thankYou.questions')}{' '}
             <a
               href="mailto:info@shelivery.com"
-              style={{ color: '#2563EB', textDecoration: 'none' }}
+              className="text-primary no-underline"
             >
               info@shelivery.com
             </a>
@@ -259,41 +161,9 @@ export default function ThankYouPage() {
         </div>
 
         {/* Logo */}
-        <div style={{ marginTop: '40px', textAlign: 'center' }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              marginBottom: '8px',
-            }}
-          >
-            <span
-              className="material-symbols-outlined"
-              style={{ color: '#2563EB', fontSize: '24px' }}
-            >
-              delivery_dining
-            </span>
-            <span
-              style={{
-                fontFamily: '"Plus Jakarta Sans", sans-serif',
-                fontSize: '20px',
-                fontWeight: '800',
-                color: '#111827',
-                letterSpacing: '-0.05em',
-              }}
-            >
-              Shelivery
-            </span>
-          </div>
-          <p
-            style={{
-              fontSize: '12px',
-              color: '#6B7280',
-              fontFamily: '"Inter", sans-serif',
-            }}
-          >
+        <div className="mt-10 text-center">
+          <Logo size="md" className="justify-center" />
+          <p className="font-micro-copy text-text-muted mt-2">
             {t('thankYou.tagline')}
           </p>
         </div>
