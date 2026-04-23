@@ -18,22 +18,12 @@ export default function Home() {
             No more minimum order limit, and no more delivery fee.
           </p>
           {/* Email + button */}
-          <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto pt-2">
-            <input
-              className="flex-grow rounded-lg border border-border-subtle bg-surface-muted px-4 py-2.5 text-sm outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary"
-              placeholder="Enter your email"
-              type="email"
-            />
-            <button
-              className="bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm shadow-md transition-all active:scale-95"
-              style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-            >
-              Get Early Access
-            </button>
+          <div className="max-w-md mx-auto pt-2">
+            <EmailForm />
           </div>
           <div className="flex justify-center items-center gap-2 pt-1">
             <span className="text-xs text-text-muted flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
               Starting in Lausanne
             </span>
           </div>
@@ -148,54 +138,48 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-8">
               {/* Order Together */}
               <div
-                className="bg-white p-8 rounded-3xl border border-border-subtle flex flex-col items-center text-center"
+                className="p-8 rounded-3xl border border-border-subtle bg-white flex flex-col items-center text-center"
                 style={{ boxShadow: '0 10px 40px -10px rgba(0,0,0,0.06)' }}
               >
-                <div className="w-14 h-14 bg-accent-soft rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-14 h-14 bg-white border border-border-subtle rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-primary text-3xl">groups</span>
                 </div>
-                <h3 className="text-lg mb-3" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
+                <h3 className="text-lg mb-3 text-text-main" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
                   Order Together
                 </h3>
-                <p className="text-text-muted text-sm" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
+                <p className="text-sm text-text-muted" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
                   Shelivery syncs orders from nearby neighbors, turning individual trips into community pools.
                 </p>
               </div>
 
               {/* Save up to 70% */}
               <div
-                className="bg-white p-8 rounded-3xl border border-border-subtle flex flex-col items-center text-center"
+                className="p-8 rounded-3xl border border-border-subtle bg-white flex flex-col items-center text-center"
                 style={{ boxShadow: '0 10px 40px -10px rgba(0,0,0,0.06)' }}
               >
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(108, 248, 187, 0.2)' }}
-                >
-                  <span className="material-symbols-outlined text-secondary text-3xl">savings</span>
+                <div className="w-14 h-14 bg-white border border-border-subtle rounded-2xl flex items-center justify-center mb-6">
+                  <span className="material-symbols-outlined text-primary text-3xl">savings</span>
                 </div>
-                <h3 className="text-lg mb-3" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
+                <h3 className="text-lg mb-3 text-text-main" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
                   Save up to 70%
                 </h3>
-                <p className="text-text-muted text-sm" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
+                <p className="text-sm text-text-muted" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
                   Split delivery fees and service charges. Most users reach zero delivery cost within 5 minutes of posting.
                 </p>
               </div>
 
               {/* Eco-Friendly */}
               <div
-                className="bg-white p-8 rounded-3xl border border-border-subtle flex flex-col items-center text-center"
+                className="p-8 rounded-3xl border border-accent-soft bg-accent-soft flex flex-col items-center text-center"
                 style={{ boxShadow: '0 10px 40px -10px rgba(0,0,0,0.06)' }}
               >
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(255,181,150,0.3)' }}
-                >
-                  <span className="material-symbols-outlined text-tertiary text-3xl">eco</span>
+                <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-6">
+                  <span className="material-symbols-outlined text-white text-3xl">eco</span>
                 </div>
-                <h3 className="text-lg mb-3" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
+                <h3 className="text-lg mb-3 text-primary" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
                   Eco-Friendly
                 </h3>
-                <p className="text-text-muted text-sm" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
+                <p className="text-sm text-primary/80" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
                   Fewer delivery bikes on the road means less congestion and a smaller carbon footprint for every meal.
                 </p>
               </div>
@@ -237,12 +221,9 @@ export default function Home() {
               >
                 Be the first to know when we launch in your neighborhood. Limited slots for beta testers.
               </p>
-              <button
-                className="bg-white text-primary px-10 py-4 rounded-xl font-semibold hover:opacity-90 active:scale-95 transition-all shadow-xl"
-                style={{ fontFamily: '"Inter", sans-serif', letterSpacing: '0.01em' }}
-              >
-                Reserve My Spot
-              </button>
+              <div className="flex justify-center">
+                <EmailForm />
+              </div>
             </div>
           </div>
         </section>

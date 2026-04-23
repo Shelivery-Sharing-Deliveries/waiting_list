@@ -4,11 +4,10 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   const footerLinks = [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Contact Us', href: '#' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms of Service', href: '/terms-of-service' },
+    { label: 'Contact Us', href: 'mailto:info@shelivery.com' },
     { label: 'Instagram', href: '#' },
-    { label: 'Twitter', href: '#' },
   ];
 
   return (
@@ -19,7 +18,7 @@ const Footer: React.FC = () => {
       >
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="text-lg font-semibold text-gray-900">Shelivery</div>
-          <p className="text-gray-500">© 2024 Shelivery. Starting in Lausanne.</p>
+          <p className="text-gray-500">© {new Date().getFullYear()} Shelivery. Starting in Lausanne.</p>
         </div>
         <div className="flex flex-wrap justify-center gap-6 text-gray-500">
           {footerLinks.map((link, index) => (

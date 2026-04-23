@@ -23,51 +23,20 @@ const Navbar: React.FC = () => {
           </span>
         </div>
 
-        {/* Nav Links - Desktop */}
-        <div
-          className="hidden md:flex items-center gap-8 text-sm font-medium"
-          style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-        >
-          <a
-            href="#"
-            className="border-b-2 pb-1"
-            style={{ color: '#2563eb', borderColor: '#2563eb' }}
-          >
-            How It Works
-          </a>
-          <a
-            href="#"
-            className="transition-colors"
-            style={{ color: '#6B7280' }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#111827')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = '#6B7280')}
-          >
-            Pricing
-          </a>
-          <a
-            href="#"
-            className="transition-colors"
-            style={{ color: '#6B7280' }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#111827')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = '#6B7280')}
-          >
-            Community
-          </a>
-        </div>
-
         {/* CTA Button */}
-        <button
-          className="text-white px-6 py-2 rounded-lg text-sm font-semibold transition-all active:scale-95"
+        <a
+          href="/"
+          className="text-white px-6 py-2 rounded-lg text-sm font-semibold transition-all active:scale-95 inline-block"
           style={{
             fontFamily: '"Plus Jakarta Sans", sans-serif',
             background: '#2563EB',
             borderTop: '1px solid rgba(255,255,255,0.2)',
           }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.9')}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.9')}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = '1')}
         >
           Join Beta
-        </button>
+        </a>
       </div>
     </nav>
   );

@@ -5,18 +5,18 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, var
   const isAccent = variant === 'accent';
   
   return (
-    <div className={`p-8 rounded-3xl border border-border-subtle ambient-shadow flex flex-col items-center text-center ${
-      isAccent ? 'bg-accent-soft' : 'bg-white'
+    <div className={`p-4 rounded-2xl border shadow-sm flex items-start gap-4 ${
+      isAccent ? 'bg-accent-soft border-accent-soft' : 'bg-white border-border-subtle'
     }`}>
-      <div className={`w-14 h-14 ${
-        isAccent ? 'bg-primary' : 'bg-accent-soft'
-      } rounded-2xl flex items-center justify-center mb-6`}>
-        <span className={`material-symbols-outlined ${
-          isAccent ? 'text-white' : 'text-primary'
-        } text-3xl`} data-icon={icon}>{icon}</span>
+      <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${
+        isAccent ? 'bg-primary' : 'bg-white border border-border-subtle'
+      }`}>
+        <span className={`material-symbols-outlined ${isAccent ? 'text-white' : 'text-primary'}`} data-icon={icon}>{icon}</span>
       </div>
-      <h3 className="font-label-bold text-lg mb-3">{title}</h3>
-      <p className="text-body-sm text-text-muted">{description}</p>
+      <div>
+        <h3 className={`text-sm font-bold mb-1 ${isAccent ? 'text-primary' : 'text-text-main'}`}>{title}</h3>
+        <p className={`text-xs leading-relaxed ${isAccent ? 'text-primary/80' : 'text-text-muted'}`}>{description}</p>
+      </div>
     </div>
   );
 };
@@ -37,6 +37,7 @@ const FeatureCards: React.FC = () => {
       icon: 'eco',
       title: 'Eco-Friendly',
       description: 'Fewer delivery bikes on the road means less congestion and a smaller carbon footprint for every meal.',
+      variant: 'accent' as const,
     },
   ];
 
@@ -46,7 +47,7 @@ const FeatureCards: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="font-headline-lg text-headline-lg text-on-background">Better for you, better for the city.</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-3">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}
