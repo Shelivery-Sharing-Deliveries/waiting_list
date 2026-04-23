@@ -74,7 +74,7 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-sm font-bold text-primary">{t('features.eco.title')}</h3>
-              <p className="text-xs mt-1 leading-relaxed" style={{ color: 'rgba(37,99,235,0.8)' }}>
+              <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--color-primary)' }}>
                 {t('features.eco.descriptionShort')}
               </p>
             </div>
