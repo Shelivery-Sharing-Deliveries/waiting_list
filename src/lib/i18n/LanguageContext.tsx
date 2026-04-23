@@ -21,12 +21,15 @@ type NestedKeyOf<T> = T extends object
   : never;
 
 // Simple dot-path resolver
-function resolvePath(obj: Record<string, unknown>, path: string): string {
+function resolvePath(obj: Record<string, unknown>, path: string, arg?: number): string {
   const parts = path.split('.');
   let current: unknown = obj;
   for (const part of parts) {
     if (current == null || typeof current !== 'object') return path;
     current = (current as Record<string, unknown>)[part];
+  }
+  if (typeof current === 'function') {
+    return current(arg);
   }
   return typeof current === 'string' ? current : path;
 }
@@ -34,13 +37,13 @@ function resolvePath(obj: Record<string, unknown>, path: string): string {
 interface LanguageContextValue {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: (key: string) => string;
+  t: (key: string, arg?: number) => string;
 }
 
 const LanguageContext = createContext<LanguageContextValue>({
   locale: 'en',
   setLocale: () => {},
-  t: (key) => key,
+  t: (key: string, arg?: number) => key,
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
@@ -58,11 +61,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const t = useCallback(
-    (key: string): string => {
+    (key: string, arg?: number): string => {
       if (!mounted) {
-        return resolvePath(translations['en'] as unknown as Record<string, unknown>, key);
+        return resolvePath(translations['en'] as unknown as Record<string, unknown>, key, arg);
       }
-      return resolvePath(translations[locale] as unknown as Record<string, unknown>, key);
+      return resolvePath(translations[locale] as unknown as Record<string, unknown>, key, arg);
     },
     [locale, mounted],
   );

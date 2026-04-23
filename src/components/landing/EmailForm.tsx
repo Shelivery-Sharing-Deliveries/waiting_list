@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
@@ -9,8 +9,26 @@ const EmailForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [waitingListCount, setWaitingListCount] = useState(0);
   const router = useRouter();
   const { t } = useLanguage();
+
+  useEffect(() => {
+    const fetchWaitingListCount = async () => {
+      try {
+        const response = await fetch('/api/waitlist-count');
+        const data = await response.json();
+        if (response.ok) {
+          setWaitingListCount(data.count + 100); // Add 100 as per requirement
+        } else {
+          console.error('Failed to fetch waiting list count:', data.error);
+        }
+      } catch (err) {
+        console.error('Error fetching waiting list count:', err);
+      }
+    };
+    fetchWaitingListCount();
+  }, []);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -195,7 +213,7 @@ const EmailForm: React.FC = () => {
           textAlign: 'left',
         }}
       >
-        {t('emailForm.helperText')}
+        {t('emailForm.helperText', waitingListCount)}
       </p>
 
       <style>{`

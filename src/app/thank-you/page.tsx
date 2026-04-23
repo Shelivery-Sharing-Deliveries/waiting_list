@@ -2,9 +2,28 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import React, { useState, useEffect } from 'react';
 
 export default function ThankYouPage() {
   const { t } = useLanguage();
+  const [waitingListCount, setWaitingListCount] = useState(0);
+
+  useEffect(() => {
+    const fetchWaitingListCount = async () => {
+      try {
+        const response = await fetch('/api/waitlist-count');
+        const data = await response.json();
+        if (response.ok) {
+          setWaitingListCount(data.count + 100); // Add 100 as per requirement
+        } else {
+          console.error('Failed to fetch waiting list count:', data.error);
+        }
+      } catch (err) {
+        console.error('Error fetching waiting list count:', err);
+      }
+    };
+    fetchWaitingListCount();
+  }, []);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.origin);
@@ -113,7 +132,7 @@ export default function ThankYouPage() {
               lineHeight: '1.5',
             }}
           >
-            <span style={{ fontWeight: '600', color: '#2563EB' }}>{t('thankYou.waitingCount')}</span>{' '}
+            <span style={{ fontWeight: '600', color: '#2563EB' }}>{t('thankYou.waitingCount', waitingListCount)}</span>{' '}
             {t('thankYou.waitingText')}
           </p>
         </div>

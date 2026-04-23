@@ -48,7 +48,7 @@ export const translations = {
       button: 'Get Early Access',
       loading: 'Loading...',
       successMessage: "You're getting into the queue!",
-      helperText: "Rejoignez plus de 1 200 personnes sur la liste d'attente de Lausanne.",
+      helperText: (count: number) => `Join over ${count} people on the Lausanne waiting list.`,
       errorInvalidEmail: 'Please enter a valid email address',
       errorFailed: 'Failed to join. Please try again.',
       errorGeneral: 'An error occurred. Please try again.',
@@ -64,7 +64,7 @@ export const translations = {
       title: "You're on the list! \uD83C\uDF89",
       description:
         "Thank you for joining the Shelivery waiting list. We'll notify you as soon as we launch in Lausanne.",
-      waitingCount: '1,201 people',
+      waitingCount: (count: number) => `${count} people`,
       waitingText: 'are now waiting with you. The more people join, the faster we can launch!',
       shareTitle: 'Help us grow faster',
       shareSubtitle: 'Share with friends in Lausanne to move up the list.',
@@ -123,7 +123,7 @@ export const translations = {
       button: 'Acces Anticipe',
       loading: 'Chargement...',
       successMessage: "Vous etes dans la file d'attente !",
-      helperText: "Rejoignez plus de 1 200 personnes sur la liste d'attente de Lausanne.",
+      helperText: (count: number) => `Rejoignez plus de ${count} personnes sur la liste d'attente de Lausanne.`,
       errorInvalidEmail: 'Veuillez entrer une adresse email valide',
       errorFailed: 'Echec de inscription. Veuillez reessayer.',
       errorGeneral: 'Une erreur est survenue. Veuillez reessayer.',
@@ -139,7 +139,7 @@ export const translations = {
       title: "Vous etes sur la liste ! \uD83C\uDF89",
       description:
         "Merci d'avoir rejoint la liste d'attente Shelivery. Nous vous informerons des notre lancement a Lausanne.",
-      waitingCount: '1 201 personnes',
+      waitingCount: (count: number) => `${count} personnes`,
       waitingText:
         'attendent avec vous. Plus il y a de personnes, plus vite nous pouvons lancer !',
       shareTitle: 'Aidez-nous a grandir plus vite',

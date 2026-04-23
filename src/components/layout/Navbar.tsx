@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { locales, Locale } from '@/lib/i18n/translations';
+import Logo from '@/components/common/Logo';
 
 const LOCALE_LABELS: Record<Locale, string> = {
   en: 'EN',
@@ -22,15 +23,7 @@ const Navbar: React.FC = () => {
     >
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-primary">delivery_dining</span>
-          <span
-            className="text-xl font-extrabold tracking-tighter text-gray-900"
-            style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
-          >
-            Shelivery
-          </span>
-        </div>
+        <Logo size="md" />
 
         {/* Right side: Language switcher + CTA */}
         <div className="flex items-center gap-3">

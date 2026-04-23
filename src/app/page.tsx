@@ -213,7 +213,7 @@ export default function Home() {
         <section className="max-w-4xl mx-auto px-6 py-20 text-center">
           <div
             className="p-12 text-white relative overflow-hidden"
-            style={{ background: 'var(-color-primary)', borderRadius: '2rem' }}
+            style={{ background: 'var(--color-primary)', borderRadius: '2rem' }}
           >
             <div
               className="absolute top-0 right-0 rounded-full blur-3xl"
