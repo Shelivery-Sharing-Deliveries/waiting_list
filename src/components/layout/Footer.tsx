@@ -1,13 +1,16 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
+
   const footerLinks = [
-    { label: 'Privacy Policy', href: '/privacy-policy' },
-    { label: 'Terms of Service', href: '/terms-of-service' },
-    { label: 'Contact Us', href: 'mailto:info@shelivery.com' },
-    { label: 'Instagram', href: '#' },
+    { key: 'footer.privacyPolicy', href: '/privacy-policy' },
+    { key: 'footer.termsOfService', href: '/terms-of-service' },
+    { key: 'footer.contactUs', href: 'mailto:info@shelivery.com' },
+    { key: 'footer.instagram', href: '#' },
   ];
 
   return (
@@ -18,19 +21,21 @@ const Footer: React.FC = () => {
       >
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="text-lg font-semibold text-gray-900">Shelivery</div>
-          <p className="text-gray-500">© {new Date().getFullYear()} Shelivery. Starting in Lausanne.</p>
+          <p className="text-gray-500">
+            &copy; {new Date().getFullYear()} Shelivery. {t('footer.tagline')}
+          </p>
         </div>
         <div className="flex flex-wrap justify-center gap-6 text-gray-500">
-          {footerLinks.map((link, index) => (
+          {footerLinks.map((link) => (
             <a
-              key={index}
+              key={link.key}
               href={link.href}
               className="transition-colors cursor-pointer"
               style={{ color: '#6B7280', textDecoration: 'none' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#2563eb')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#6B7280')}
             >
-              {link.label}
+              {t(link.key)}
             </a>
           ))}
         </div>

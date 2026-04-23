@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
 export const metadata: Metadata = {
   title: 'Shelivery - Delivery costs, Shared.',
-  description: 'No more minimum order limit, and no more delivery fee. Join forces with your neighbors to unlock premium delivery for free.',
+  description:
+    'No more minimum order limit, and no more delivery fee. Join forces with your neighbors to unlock premium delivery for free.',
 };
 
 export default function RootLayout({
@@ -27,12 +29,15 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-background text-on-surface" style={{ fontFamily: '"Inter", "Plus Jakarta Sans", sans-serif' }}>
-        <Navbar />
-        <main className="pt-[72px]">
-          {children}
-        </main>
-        <Footer />
+      <body
+        className="bg-background text-on-surface"
+        style={{ fontFamily: '"Inter", "Plus Jakarta Sans", sans-serif' }}
+      >
+        <LanguageProvider>
+          <Navbar />
+          <main className="pt-[72px]">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

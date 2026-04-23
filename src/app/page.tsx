@@ -1,7 +1,12 @@
+'use client';
+
 import AnimationBox from '@/components/landing/AnimationBox';
 import EmailForm from '@/components/landing/EmailForm';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* ── MOBILE LAYOUT (hidden on lg+) ── */}
@@ -12,10 +17,10 @@ export default function Home() {
             className="text-3xl font-extrabold text-text-main tracking-tight leading-tight"
             style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
           >
-            Delivery costs, Shared.
+            {t('hero.title')} <span className="text-primary">{t('hero.titleHighlight')}</span>
           </h1>
           <p className="text-sm text-text-muted max-w-[480px] mx-auto leading-relaxed">
-            No more minimum order limit, and no more delivery fee.
+            {t('hero.subtitleShort')}
           </p>
           {/* Email + button */}
           <div className="max-w-md mx-auto pt-2">
@@ -24,7 +29,7 @@ export default function Home() {
           <div className="flex justify-center items-center gap-2 pt-1">
             <span className="text-xs text-text-muted flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
-              Starting in Lausanne
+              {t('hero.badge')}
             </span>
           </div>
         </section>
@@ -39,9 +44,11 @@ export default function Home() {
               <span className="material-symbols-outlined text-primary">group_add</span>
             </div>
             <div>
-              <h3 className="text-sm font-bold text-text-main">Order Together</h3>
+              <h3 className="text-sm font-bold text-text-main">
+                {t('features.orderTogether.title')}
+              </h3>
               <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                Browse local spots, see who&apos;s ordering nearby, and hop on their delivery run instantly.
+                {t('features.orderTogether.descriptionShort')}
               </p>
             </div>
           </div>
@@ -51,9 +58,9 @@ export default function Home() {
               <span className="material-symbols-outlined text-primary">savings</span>
             </div>
             <div>
-              <h3 className="text-sm font-bold text-text-main">Save up to 70%</h3>
+              <h3 className="text-sm font-bold text-text-main">{t('features.save.title')}</h3>
               <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                The delivery fee is split equally among everyone in the group. One stop, minimal cost.
+                {t('features.save.descriptionShort')}
               </p>
             </div>
           </div>
@@ -62,15 +69,13 @@ export default function Home() {
             className="flex items-start gap-4 p-4 rounded-2xl shadow-sm"
             style={{ background: '#EFF6FF', border: '1px solid #EFF6FF' }}
           >
-            <div
-              className="flex items-center justify-center w-10 h-10 rounded-xl shadow-sm shrink-0 bg-primary"
-            >
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl shadow-sm shrink-0 bg-primary">
               <span className="material-symbols-outlined text-white">eco</span>
             </div>
             <div>
-              <h3 className="text-sm font-bold text-primary">Eco-Friendly</h3>
+              <h3 className="text-sm font-bold text-primary">{t('features.eco.title')}</h3>
               <p className="text-xs mt-1 leading-relaxed" style={{ color: 'rgba(37,99,235,0.8)' }}>
-                Reducing Lausanne&apos;s traffic and carbon footprint by consolidating multiple deliveries into one.
+                {t('features.eco.descriptionShort')}
               </p>
             </div>
           </div>
@@ -88,7 +93,7 @@ export default function Home() {
               style={{ fontFamily: '"Inter", sans-serif', background: '#ededf9' }}
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse inline-block"></span>
-              Starting in Lausanne
+              {t('hero.badge')}
             </div>
             <h1
               className="text-on-background"
@@ -100,20 +105,19 @@ export default function Home() {
                 fontWeight: '800',
               }}
             >
-              Delivery costs, <span className="text-primary">Shared.</span>
+              {t('hero.title')} <span className="text-primary">{t('hero.titleHighlight')}</span>
             </h1>
             <p
               className="text-text-muted max-w-md"
               style={{ fontFamily: '"Inter", sans-serif', fontSize: '16px', lineHeight: '1.6' }}
             >
-              No more minimum order limit, and no more delivery fee. Join forces with your neighbors to unlock premium delivery for free.
+              {t('hero.subtitle')}
             </p>
             <EmailForm />
           </div>
 
           {/* Right: Animated Box */}
           <div className="relative max-w-lg mx-auto w-full">
-            {/* Taller on desktop */}
             <AnimationBox />
           </div>
         </section>
@@ -132,7 +136,7 @@ export default function Home() {
                   fontWeight: '700',
                 }}
               >
-                Better for you, better for the city.
+                {t('features.sectionTitle')}
               </h2>
             </div>
             <div className="grid grid-cols-3 gap-8">
@@ -144,11 +148,17 @@ export default function Home() {
                 <div className="w-14 h-14 bg-white border border-border-subtle rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-primary text-3xl">groups</span>
                 </div>
-                <h3 className="text-lg mb-3 text-text-main" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
-                  Order Together
+                <h3
+                  className="text-lg mb-3 text-text-main"
+                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}
+                >
+                  {t('features.orderTogether.title')}
                 </h3>
-                <p className="text-sm text-text-muted" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
-                  Shelivery syncs orders from nearby neighbors, turning individual trips into community pools.
+                <p
+                  className="text-sm text-text-muted"
+                  style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}
+                >
+                  {t('features.orderTogether.descriptionLong')}
                 </p>
               </div>
 
@@ -160,11 +170,17 @@ export default function Home() {
                 <div className="w-14 h-14 bg-white border border-border-subtle rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-primary text-3xl">savings</span>
                 </div>
-                <h3 className="text-lg mb-3 text-text-main" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
-                  Save up to 70%
+                <h3
+                  className="text-lg mb-3 text-text-main"
+                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}
+                >
+                  {t('features.save.title')}
                 </h3>
-                <p className="text-sm text-text-muted" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
-                  Split delivery fees and service charges. Most users reach zero delivery cost within 5 minutes of posting.
+                <p
+                  className="text-sm text-text-muted"
+                  style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}
+                >
+                  {t('features.save.descriptionLong')}
                 </p>
               </div>
 
@@ -176,11 +192,17 @@ export default function Home() {
                 <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-white text-3xl">eco</span>
                 </div>
-                <h3 className="text-lg mb-3 text-primary" style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}>
-                  Eco-Friendly
+                <h3
+                  className="text-lg mb-3 text-primary"
+                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: '600' }}
+                >
+                  {t('features.eco.title')}
                 </h3>
-                <p className="text-sm text-primary/80" style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}>
-                  Fewer delivery bikes on the road means less congestion and a smaller carbon footprint for every meal.
+                <p
+                  className="text-sm text-primary/80"
+                  style={{ fontFamily: '"Inter", sans-serif', lineHeight: '1.5' }}
+                >
+                  {t('features.eco.descriptionLong')}
                 </p>
               </div>
             </div>
@@ -213,13 +235,13 @@ export default function Home() {
                   fontWeight: '800',
                 }}
               >
-                Ready to stop paying for delivery?
+                {t('cta.title')}
               </h2>
               <p
                 className="mb-8 max-w-md mx-auto"
                 style={{ fontFamily: '"Inter", sans-serif', color: '#dbe1ff' }}
               >
-                Be the first to know when we launch in your neighborhood. Limited slots for beta testers.
+                {t('cta.subtitle')}
               </p>
               <div className="flex justify-center">
                 <EmailForm />

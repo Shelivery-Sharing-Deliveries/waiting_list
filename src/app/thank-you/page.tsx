@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function ThankYouPage() {
+  const { t } = useLanguage();
+
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.origin);
   };
@@ -10,8 +13,8 @@ export default function ThankYouPage() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Join Shelivery Waitlist',
-        text: 'Join me on the Shelivery waiting list - Delivery costs, Shared!',
+        title: t('thankYou.shareNativeTitle'),
+        text: t('thankYou.shareNativeText'),
         url: window.location.origin,
       });
     }
@@ -76,7 +79,7 @@ export default function ThankYouPage() {
             marginBottom: '16px',
           }}
         >
-          You&apos;re on the list! 🎉
+          {t('thankYou.title')}
         </h1>
 
         {/* Description */}
@@ -89,7 +92,7 @@ export default function ThankYouPage() {
             marginBottom: '24px',
           }}
         >
-          Thank you for joining the Shelivery waiting list. We&apos;ll notify you as soon as we launch in Lausanne.
+          {t('thankYou.description')}
         </p>
 
         {/* Info box */}
@@ -102,9 +105,16 @@ export default function ThankYouPage() {
             marginBottom: '32px',
           }}
         >
-          <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: '#6B7280', lineHeight: '1.5' }}>
-            <span style={{ fontWeight: '600', color: '#2563EB' }}>1,201 people</span> are now waiting with you.
-            The more people join, the faster we can launch!
+          <p
+            style={{
+              fontFamily: '"Inter", sans-serif',
+              fontSize: '14px',
+              color: '#6B7280',
+              lineHeight: '1.5',
+            }}
+          >
+            <span style={{ fontWeight: '600', color: '#2563EB' }}>{t('thankYou.waitingCount')}</span>{' '}
+            {t('thankYou.waitingText')}
           </p>
         </div>
 
@@ -119,7 +129,7 @@ export default function ThankYouPage() {
               marginBottom: '8px',
             }}
           >
-            Help us grow faster
+            {t('thankYou.shareTitle')}
           </h3>
           <p
             style={{
@@ -129,7 +139,7 @@ export default function ThankYouPage() {
               marginBottom: '16px',
             }}
           >
-            Share with friends in Lausanne to move up the list.
+            {t('thankYou.shareSubtitle')}
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
             <button
@@ -150,8 +160,10 @@ export default function ThankYouPage() {
                 transition: 'all 0.15s ease',
               }}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>share</span>
-              Share
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                share
+              </span>
+              {t('thankYou.shareButton')}
             </button>
             <button
               onClick={handleCopyLink}
@@ -171,8 +183,10 @@ export default function ThankYouPage() {
                 transition: 'all 0.15s ease',
               }}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>link</span>
-              Copy Link
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                link
+              </span>
+              {t('thankYou.copyLink')}
             </button>
           </div>
         </div>
@@ -201,22 +215,26 @@ export default function ThankYouPage() {
               transition: 'all 0.15s ease',
             }}
           >
-            <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
-            Back to Home
+            <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              arrow_back
+            </span>
+            {t('thankYou.backToHome')}
           </Link>
 
-          <p style={{
-            marginTop: '16px',
-            fontSize: '12px',
-            color: '#6B7280',
-            fontFamily: '"Inter", sans-serif',
-          }}>
-            Questions? Contact us at{' '}
+          <p
+            style={{
+              marginTop: '16px',
+              fontSize: '12px',
+              color: '#6B7280',
+              fontFamily: '"Inter", sans-serif',
+            }}
+          >
+            {t('thankYou.questions')}{' '}
             <a
-              href="mailto:hello@shelivery.ch"
+              href="mailto:info@shelivery.com"
               style={{ color: '#2563EB', textDecoration: 'none' }}
             >
-              hello@shelivery.ch
+              info@shelivery.com
             </a>
           </p>
         </div>
@@ -232,7 +250,10 @@ export default function ThankYouPage() {
               marginBottom: '8px',
             }}
           >
-            <span className="material-symbols-outlined" style={{ color: '#2563EB', fontSize: '24px' }}>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: '#2563EB', fontSize: '24px' }}
+            >
               delivery_dining
             </span>
             <span
@@ -247,8 +268,14 @@ export default function ThankYouPage() {
               Shelivery
             </span>
           </div>
-          <p style={{ fontSize: '12px', color: '#6B7280', fontFamily: '"Inter", sans-serif' }}>
-            Delivery costs, Shared. Starting in Lausanne.
+          <p
+            style={{
+              fontSize: '12px',
+              color: '#6B7280',
+              fontFamily: '"Inter", sans-serif',
+            }}
+          >
+            {t('thankYou.tagline')}
           </p>
         </div>
       </div>
