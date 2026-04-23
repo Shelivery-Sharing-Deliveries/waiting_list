@@ -6,16 +6,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, var
   
   return (
     <div className={`p-4 rounded-2xl border shadow-sm flex items-start gap-4 ${
-      isAccent ? 'bg-accent-soft border-accent-soft' : 'bg-white border-border-subtle'
+      isAccent ? 'bg-[var(--color-accent-soft)] border-[var(--color-accent-soft)]' : 'bg-[var(--color-white)] border-[var(--color-border-subtle)]'
     }`}>
       <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${
-        isAccent ? 'bg-primary' : 'bg-white border border-border-subtle'
+        isAccent ? 'bg-[var(--color-primary)]' : 'bg-[var(--color-white)] border border-[var(--color-border-subtle)]'
       }`}>
-        <span className={`material-symbols-outlined ${isAccent ? 'text-white' : 'text-primary'}`} data-icon={icon}>{icon}</span>
+        <span className={`material-symbols-outlined ${isAccent ? 'text-[var(--color-white)]' : 'text-[var(--color-primary)]'}`} data-icon={icon}>{icon}</span>
       </div>
       <div>
-        <h3 className={`text-sm font-bold mb-1 ${isAccent ? 'text-primary' : 'text-text-main'}`}>{title}</h3>
-        <p className={`text-xs leading-relaxed ${isAccent ? 'text-primary/80' : 'text-text-muted'}`}>{description}</p>
+        <h3 className={`text-sm font-bold mb-1 ${isAccent ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-main)]'}`}>{title}</h3>
+        <p className={`text-xs leading-relaxed ${isAccent ? 'text-[var(--color-primary)]/80' : 'text-[var(--color-text-muted)]'}`}>{description}</p>
       </div>
     </div>
   );

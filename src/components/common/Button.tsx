@@ -10,12 +10,12 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseClasses = 'font-label-bold transition-all active:scale-95 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2';
+  const baseClasses = 'font-label-bold transition-all active:scale-95 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-primary text-on-primary hover:brightness-110 border-t border-white/20',
+    primary: 'bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:brightness-110 border-t border-white/20',
     secondary: 'bg-secondary text-white hover:bg-secondary/90',
-    outline: 'bg-transparent border border-primary text-primary hover:bg-primary/10'
+    outline: 'bg-transparent border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10'
   };
 
   const sizeClasses = {
@@ -34,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {isLoading ? (
         <div className="flex items-center justify-center">
-          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
+          <div className="w-4 h-4 border-2 border-white/30 border-t-[var(--color-on-primary)] rounded-full animate-spin mr-2"></div>
           Loading...
         </div>
       ) : children}

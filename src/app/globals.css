@@ -2,17 +2,21 @@
 
 @theme {
   /* Colors */
-  --color-primary: #2563EB;
+  --color-primary: #245B7B;
+  --color-primary-rgb: 36, 91, 123;
+  --color-white: #ffffff;
+  --color-black-rgb: 0, 0, 0;
   --color-on-primary: #ffffff;
-  --color-primary-fixed: #dbe1ff;
-  --color-primary-fixed-dim: #b4c5ff;
-  --color-primary-container: #2563eb;
-  --color-on-primary-container: #eeefff;
-  --color-on-primary-fixed: #00174b;
-  --color-on-primary-fixed-variant: #003ea8;
-  --color-inverse-primary: #b4c5ff;
+  --color-primary-fixed: #C0D0E0; /* Lighter, desaturated primary */
+  --color-primary-fixed-dim: #A0B0C0; /* Dimmer lighter primary */
+  --color-primary-container: #3A7090; /* Muted primary for containers */
+  --color-on-primary-container: #eeefff; /* Keep white for contrast */
+  --color-on-primary-fixed: #001030; /* Darker text on fixed primary */
+  --color-on-primary-fixed-variant: #002050; /* Variant of darker text */
+  --color-inverse-primary: #A0C0E0; /* Lighter contrasting primary */
 
   --color-secondary: #006c49;
+  --color-secondary-rgb: 0, 108, 73;
   --color-on-secondary: #ffffff;
   --color-secondary-container: #6cf8bb;
   --color-secondary-fixed: #6ffbbe;
@@ -43,7 +47,7 @@
   --color-surface-container: #ededf9;
   --color-surface-container-high: #e7e7f3;
   --color-surface-container-highest: #e1e2ed;
-  --color-surface-tint: #0053db;
+  --color-surface-tint: #306A8A; /* More saturated primary for tint */
   --color-surface-muted: #F9FAFB;
 
   --color-text-main: #111827;

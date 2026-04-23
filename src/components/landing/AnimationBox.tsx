@@ -142,11 +142,11 @@ export default function AnimationBox() {
               font-size: 11px;
               font-weight: 500;
               max-width: 80%;
-              background: ${msg.side === 'right' ? '#2563EB' : '#ffffff'};
-              color: ${msg.side === 'right' ? '#ffffff' : '#111827'};
-              border: ${msg.side === 'right' ? 'none' : '1px solid #E5E7EB'};
+              background: ${msg.side === 'right' ? 'var(--color-primary)' : 'var(--color-white)'};
+              color: ${msg.side === 'right' ? 'var(--color-on-primary)' : 'var(--color-text-main)'};
+              border: ${msg.side === 'right' ? 'none' : '1px solid var(--color-border-subtle)'};
               border-radius: ${msg.side === 'right' ? '16px 0 16px 16px' : '0 16px 16px 16px'};
-              box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+              box-shadow: 0 1px 2px rgba(var(--color-black-rgb),0.05);
             `;
             row.appendChild(bubble);
             chatRef.current.appendChild(row);
@@ -194,8 +194,8 @@ export default function AnimationBox() {
               width: 24px; height: 24px;
               object-fit: cover;
               border-radius: 50%;
-              border: 2px solid white;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+              border: 2px solid var(--color-white);
+              box-shadow: 0 2px 4px rgba(var(--color-black-rgb),0.15);
               top: ${positions[i].t};
               left: ${positions[i].l};
               animation: dotPulse 0.4s ease-out forwards;
@@ -268,25 +268,25 @@ export default function AnimationBox() {
           {/* Cart link box */}
           <div
             style={{
-              background: '#F9FAFB',
+              background: 'var(--color-surface-muted)',
               padding: '16px',
               borderRadius: '12px',
-              border: '1px solid #E5E7EB',
-              boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+              border: '1px solid var(--color-border-subtle)',
+              boxShadow: '0 1px 2px rgba(var(--color-black-rgb),0.05)',
               display: 'flex',
               alignItems: 'center',
               gap: '12px',
               marginBottom: '16px',
             }}
           >
-            <span className="material-symbols-outlined" style={{ color: '#6B7280' }}>link</span>
+            <span className="material-symbols-outlined" style={{ color: 'var(--color-text-muted)' }}>link</span>
             <div style={{ textAlign: 'left', overflow: 'hidden', flexGrow: 1 }}>
-              <div style={{ fontSize: '10px', color: '#6B7280', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Paste cart link
               </div>
               <div
                 ref={typingRef}
-                style={{ fontSize: '14px', fontWeight: 500, color: '#111827' }}
+                style={{ fontSize: '14px', fontWeight: 500, color: 'var(--color-text-main)' }}
                 className="typing-text"
               >
                 https://migros.ch/cart/7821
@@ -300,14 +300,14 @@ export default function AnimationBox() {
             style={{
               width: '100%',
               padding: '10px 0',
-              background: '#2563EB',
-              color: '#ffffff',
+              background: 'var(--color-primary)',
+              color: 'var(--color-on-primary)',
               borderRadius: '8px',
               fontWeight: 700,
               fontSize: '14px',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+              boxShadow: '0 4px 6px -1px rgba(var(--color-black-rgb),0.1)',
               marginBottom: '16px',
               transition: 'transform 0.15s, filter 0.15s',
             }}
@@ -327,8 +327,8 @@ export default function AnimationBox() {
                 gap: '6px',
                 padding: '4px 12px',
                 borderRadius: '9999px',
-                background: 'rgba(0,108,73,0.1)',
-                color: '#006c49',
+                background: 'rgba(var(--color-secondary-rgb),0.1)',
+                color: 'var(--color-secondary)',
                 fontSize: '12px',
                 fontWeight: 700,
               }}
@@ -346,24 +346,24 @@ export default function AnimationBox() {
       </div>
 
       {/* STEP 2: POOL */}
-      <div style={{ ...stepStyle(step === 2), background: 'rgba(239,246,255,0.3)' }}>
+      <div style={{ ...stepStyle(step === 2), background: 'var(--color-accent-soft)' }}>
         <div
           style={{
             width: '100%',
             maxWidth: '360px',
-            background: '#ffffff',
+            background: 'var(--color-white)',
             padding: '20px',
             borderRadius: '16px',
-            border: '1px solid #E5E7EB',
-            boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+            border: '1px solid var(--color-border-subtle)',
+            boxShadow: '0 4px 6px -1px rgba(var(--color-black-rgb),0.1)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '16px' }}>
             <div>
-              <div style={{ fontWeight: 700, color: '#111827', fontSize: '14px' }}>Delivery Pool</div>
-              <div style={{ fontSize: '12px', color: '#6B7280' }}>Waiting for neighbors...</div>
+              <div style={{ fontWeight: 700, color: 'var(--color-text-main)', fontSize: '14px' }}>Delivery Pool</div>
+              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>Waiting for neighbors...</div>
             </div>
-            <span ref={poolCountRef} style={{ color: '#2563EB', fontWeight: 800, fontSize: '16px' }}>
+            <span ref={poolCountRef} style={{ color: 'var(--color-primary)', fontWeight: 800, fontSize: '16px' }}>
               3/3
             </span>
           </div>
@@ -371,7 +371,7 @@ export default function AnimationBox() {
             style={{
               height: '10px',
               width: '100%',
-              background: '#ededf9',
+              background: 'var(--color-surface-container)',
               borderRadius: '9999px',
               overflow: 'hidden',
               marginBottom: '16px',
@@ -382,7 +382,7 @@ export default function AnimationBox() {
               style={{
                 height: '100%',
                 width: '100%',
-                background: '#2563EB',
+                background: 'var(--color-primary)',
                 transition: 'width 0.5s ease',
               }}
             />
@@ -400,7 +400,7 @@ export default function AnimationBox() {
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  border: '2px solid white',
+                  border: '2px solid var(--color-white)',
                   objectFit: 'cover',
                   marginLeft: i === 0 ? 0 : '-8px',
                 }}
@@ -411,24 +411,24 @@ export default function AnimationBox() {
       </div>
 
       {/* STEP 3: CHAT */}
-      <div style={{ ...stepStyle(step === 3), background: '#faf8ff', flexDirection: 'column' }}>
+      <div style={{ ...stepStyle(step === 3), background: 'var(--color-surface)', flexDirection: 'column' }}>
         <div
           ref={chatRef}
           style={{ width: '100%', maxWidth: '320px', display: 'flex', flexDirection: 'column', gap: '12px' }}
         >
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: '#ffffff', color: '#111827', border: '1px solid #E5E7EB', borderRadius: '0 16px 16px 16px', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
+            <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: 'var(--color-white)', color: 'var(--color-text-main)', border: '1px solid var(--color-border-subtle)', borderRadius: '0 16px 16px 16px', boxShadow: '0 1px 2px rgba(var(--color-black-rgb),0.05)' }}>
               Joining! I need milk.
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: '#2563EB', color: '#ffffff', borderRadius: '16px 0 16px 16px' }}>
+            <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: 'var(--color-primary)', color: 'var(--color-on-primary)', borderRadius: '16px 0 16px 16px' }}>
               Me too! Saving 5 CHF.
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: '#ffffff', color: '#111827', border: '1px solid #E5E7EB', borderRadius: '0 16px 16px 16px', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
-              Order locked. Let&apos;s go!
+            <div style={{ padding: '10px 12px', fontSize: '11px', fontWeight: 500, maxWidth: '80%', background: 'var(--color-white)', color: 'var(--color-text-main)', border: '1px solid var(--color-border-subtle)', borderRadius: '0 16px 16px 16px', boxShadow: '0 1px 2px rgba(var(--color-black-rgb),0.05)' }}>
+              Order locked. Let's go!
             </div>
           </div>
         </div>
@@ -465,8 +465,8 @@ export default function AnimationBox() {
               left: '50%',
               width: '160px',
               height: '160px',
-              background: 'rgba(37,99,235,0.35)',
-              border: '3px solid rgba(37,99,235,0.55)',
+              background: 'rgba(var(--color-primary-rgb),0.35)',
+              border: '3px solid rgba(var(--color-primary-rgb),0.55)',
               borderRadius: '50%',
               /* start hidden; JS will drive all transitions */
               transform: 'translate(-50%, -50%) scale(0)',
@@ -482,17 +482,17 @@ export default function AnimationBox() {
               top: '25%',
               right: '25%',
               transform: 'translate(50%, -50%)',
-              background: '#ffffff',
+              background: 'var(--color-white)',
               padding: '8px',
               borderRadius: '12px',
-              boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
-              border: '1px solid #E5E7EB',
+              boxShadow: '0 4px 6px -1px rgba(var(--color-black-rgb),0.1)',
+              border: '1px solid var(--color-border-subtle)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <span className="material-symbols-outlined" style={{ color: '#2563EB', fontSize: '24px' }}>
+            <span className="material-symbols-outlined" style={{ color: 'var(--color-primary)', fontSize: '24px' }}>
               storefront
             </span>
           </div>

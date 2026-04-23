@@ -64,8 +64,8 @@ const EmailForm: React.FC = () => {
         <div
           className="flex items-center gap-3 px-5 py-3 rounded-xl"
           style={{
-            background: '#F0FDF4',
-            border: '1px solid #BBF7D0',
+            background: 'rgba(var(--color-primary-rgb), 0.1)',
+            border: '1px solid var(--color-secondary-fixed)',
           }}
         >
           <span
@@ -73,8 +73,8 @@ const EmailForm: React.FC = () => {
             style={{
               width: '18px',
               height: '18px',
-              borderColor: 'rgba(22,163,74,0.25)',
-              borderTopColor: '#16a34a',
+              borderColor: 'rgba(var(--color-secondary-rgb),0.25)',
+              borderTopColor: 'var(--color-secondary)',
               animation: 'spin 0.7s linear infinite',
             }}
           />
@@ -83,7 +83,7 @@ const EmailForm: React.FC = () => {
               fontFamily: '"Inter", sans-serif',
               fontWeight: '600',
               fontSize: '14px',
-              color: '#15803d',
+              color: 'var(--color-secondary)',
               whiteSpace: 'nowrap',
             }}
           >
@@ -100,10 +100,10 @@ const EmailForm: React.FC = () => {
   }
 
   return (
-    <div style={{ paddingTop: '24px' }}>
+    <div style={{ paddingTop: '24px'  }}>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto lg:mx-0"
+        className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto lg:mx-0 "
       >
         <div className="flex-1">
           <input
@@ -115,21 +115,21 @@ const EmailForm: React.FC = () => {
             style={{
               width: '100%',
               padding: '12px 16px',
-              background: '#F9FAFB',
-              border: error ? '1px solid #ba1a1a' : '1px solid #E5E7EB',
+              background: 'var(--color-surface-muted)',
+              border: error ? '1px solid var(--color-error)' : '1px solid var(--color-border-subtle)',
               borderRadius: '12px',
               outline: 'none',
               fontSize: '14px',
               fontFamily: '"Inter", sans-serif',
               transition: 'all 0.15s ease',
-              color: '#111827',
+              color: 'var(--color-text-main)',
             }}
             onFocus={(e) => {
-              e.currentTarget.style.borderColor = '#2563EB';
-              e.currentTarget.style.boxShadow = '0 0 0 2px rgba(37,99,235,0.2)';
+              e.currentTarget.style.borderColor = 'var(--color-primary)';
+              e.currentTarget.style.boxShadow = '0 0 0 2px rgba(var(--color-primary-rgb),0.2)';
             }}
             onBlur={(e) => {
-              e.currentTarget.style.borderColor = error ? '#ba1a1a' : '#E5E7EB';
+              e.currentTarget.style.borderColor = error ? 'var(--color-error)' : 'var(--color-border-subtle)';
               e.currentTarget.style.boxShadow = 'none';
             }}
           />
@@ -138,8 +138,8 @@ const EmailForm: React.FC = () => {
           type="submit"
           disabled={isLoading}
           style={{
-            background: isLoading ? '#93aef0' : '#2563EB',
-            color: '#ffffff',
+            background: isLoading ? 'var(--color-primary-fixed-dim)' : 'var(--color-primary)',
+            color: 'var(--color-on-primary)',
             padding: '12px 32px',
             borderRadius: '12px',
             fontSize: '14px',
@@ -150,7 +150,7 @@ const EmailForm: React.FC = () => {
             cursor: isLoading ? 'not-allowed' : 'pointer',
             transition: 'all 0.15s ease',
             whiteSpace: 'nowrap',
-            boxShadow: '0 4px 6px -1px rgba(37,99,235,0.3)',
+            boxShadow: '0 4px 6px -1px rgba(var(--color-primary-rgb),0.3)',
           }}
         >
           {isLoading ? (
@@ -161,7 +161,7 @@ const EmailForm: React.FC = () => {
                   width: '14px',
                   height: '14px',
                   borderColor: 'rgba(255,255,255,0.3)',
-                  borderTopColor: 'white',
+                  borderTopColor: 'var(--color-on-primary)',
                   animation: 'spin 0.7s linear infinite',
                 }}
               />
@@ -178,7 +178,7 @@ const EmailForm: React.FC = () => {
           style={{
             marginTop: '8px',
             fontSize: '13px',
-            color: '#ba1a1a',
+            color: 'var(--color-error)',
             fontFamily: '"Inter", sans-serif',
           }}
         >

@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                 className="text-xs font-semibold transition-all px-3 py-1.5"
                 style={{
                   fontFamily: '"Inter", sans-serif',
-                  background: locale === lang ? '#2563EB' : 'transparent',
+                  background: locale === lang ? '#245B7B' : 'transparent',
                   color: locale === lang ? '#ffffff' : '#6B7280',
                   borderRight: index < locales.length - 1 ? '1px solid #E5E7EB' : 'none',
                   cursor: locale === lang ? 'default' : 'pointer',
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
             className="text-white px-6 py-2 rounded-lg text-sm font-semibold transition-all active:scale-95 inline-block"
             style={{
               fontFamily: '"Plus Jakarta Sans", sans-serif',
-              background: '#2563EB',
+              background: '#245B7B',
               borderTop: '1px solid rgba(255,255,255,0.2)',
             }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.9')}
