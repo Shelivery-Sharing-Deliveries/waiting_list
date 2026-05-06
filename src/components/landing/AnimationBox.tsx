@@ -177,7 +177,7 @@ export default function AnimationBox() {
 
         // Show avatar dots one by one
         const positions = [
-          { t: '25%', l: '30%' },
+          { t: '30%', l: '45%' },
           { t: '65%', l: '35%' },
           { t: '45%', l: '65%' },
         ];
@@ -442,7 +442,7 @@ export default function AnimationBox() {
             position: 'absolute',
             inset: 0,
             backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida/ADBb0uierMkk4Xl0EFRfFPSps6K4A7erKoFYSHp-GZCNTKe2BwKHhWJY_YX7quuNFzDA-oXUKNGmS70AvP_9aM47A-6DAUQ_-j28B3e2JQQbRbfDU9fDicBe3qf559dV26TakEoy-nMXnCrF81ORkBO-paK3TcPe42Kv3uvBFHZEP8JG6Qaoe0fAtdEWps-XRGhFRYP9-KTk2paaxtq8pOOAZ06-7M8iQioI-uNeKnf1M4uWJ0lBZKNtCE9b1W6W')",
+              "url('/map.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
