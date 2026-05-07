@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { Suspense } from 'react';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import { CSPostHogProvider } from '@/components/PostHogProvider';
 import PostHogPageView from '@/components/PostHogPageView';
@@ -42,7 +43,9 @@ export default function RootLayout({
             <Footer />
           </LanguageProvider>
         </CSPostHogProvider>
-        <PostHogPageView />
+        <Suspense fallback={null}>
+          <PostHogPageView />
+        </Suspense>
       </body>
     </html>
   );
