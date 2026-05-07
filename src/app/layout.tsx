@@ -3,6 +3,8 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
+import { CSPostHogProvider } from '@/components/PostHogProvider';
+import PostHogPageView from '@/components/PostHogPageView';
 
 export const metadata: Metadata = {
   title: 'Shelivery - Delivery costs, Shared.',
@@ -33,11 +35,14 @@ export default function RootLayout({
         className="bg-background text-on-surface"
         style={{ fontFamily: '"Inter", "Plus Jakarta Sans", sans-serif' }}
       >
-        <LanguageProvider>
-          <Navbar />
-          <main className="pt-[72px]">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <CSPostHogProvider>
+          <LanguageProvider>
+            <Navbar />
+            <main className="pt-[72px]">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </CSPostHogProvider>
+        <PostHogPageView />
       </body>
     </html>
   );

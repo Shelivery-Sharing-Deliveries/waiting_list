@@ -15,6 +15,7 @@
     "@tailwindcss/postcss": "^4.2.4",
     "marked": "^18.0.2",
     "next": "latest",
+    "posthog-js": "^1.372.9",
     "react": "latest",
     "react-dom": "latest"
   },
