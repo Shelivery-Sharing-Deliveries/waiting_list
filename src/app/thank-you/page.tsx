@@ -13,11 +13,19 @@ export default function ThankYouPage() {
     const fetchWaitingListCount = async () => {
       try {
         const response = await fetch('/api/waitlist-count');
+        const contentType = response.headers.get('content-type') || '';
+
+        if (!contentType.includes('application/json')) {
+          console.error('Failed to fetch waiting list count: non-JSON response');
+          return;
+        }
+
         const data = await response.json();
-        if (response.ok) {
+
+        if (response.ok && typeof data.count === 'number') {
           setWaitingListCount(data.count + 100); // Add 100 as per requirement
         } else {
-          console.error('Failed to fetch waiting list count:', data.error);
+          console.error('Failed to fetch waiting list count:', data?.error || 'Unknown error');
         }
       } catch (err) {
         console.error('Error fetching waiting list count:', err);

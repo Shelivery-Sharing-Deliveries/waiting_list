@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 
 export async function GET() {
   try {
+    if (!isSupabaseConfigured || !supabase) {
+      return NextResponse.json({ count: 0 }, { status: 200 });
+    }
+
     const { count, error } = await supabase
       .from("waiting_list")
       .select("*", { count: "exact", head: true });
