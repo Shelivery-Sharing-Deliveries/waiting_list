@@ -1,7 +1,14 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 
 export async function GET() {
+  if (!isSupabaseConfigured || !supabase) {
+    return NextResponse.json(
+      { error: 'Server configuration error. Please try again later.' },
+      { status: 500 }
+    );
+  }
+
   const { data, error } = await supabase
     .from('terms_of_service')
     .select('content')
